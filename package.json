@@ -2,7 +2,7 @@
   "name": "relax-fragments",
   "version": "0.0.0",
   "description": "Relax Fragments API to use on React components and GraphQL queries",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && node_modules/.bin/babel lib/index.js -o dist/index.js --source-maps inline",
