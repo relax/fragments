@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/relax/relax-fragments.git"
+    "url": "git+https://github.com/relax/fragments.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "José Magalhães <magalhas@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/relax/relax-fragments/issues"
+    "url": "https://github.com/relax/fragments/issues"
   },
-  "homepage": "https://github.com/relax/relax-fragments#readme",
+  "homepage": "https://github.com/relax/fragments#readme",
   "dependencies": {
     "lodash.foreach": "^3.0.3",
     "lodash.merge": "^3.3.2"
