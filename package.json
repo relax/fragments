@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && node_modules/.bin/babel lib/index.js -o dist/index.js --source-maps inline",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "mocha --compilers js:babel-register --recursive"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,8 @@
     "babel-preset-stage-0": "^6.1.18",
     "eslint": "^1.9.0",
     "eslint-config-relax": "^1.0.5",
-    "eslint-plugin-react": "^3.8.0"
+    "eslint-plugin-react": "^3.8.0",
+    "expect": "^1.14.0",
+    "mocha": "^2.4.5"
   }
 }
