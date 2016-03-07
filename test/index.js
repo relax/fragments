@@ -105,6 +105,30 @@ describe('Fragments', () => {
     });
   });
 
+  it('builds a simple GraphQL mutation with variables', () => {
+    const fragments = {
+      page: {
+        _id: 1,
+        title: 1
+      }
+    };
+    const variables = {
+      page: {
+        _id: {
+          value: '1',
+          type: 'ID!'
+        }
+      }
+    };
+    const result = buildQueryAndVariables(fragments, variables, 'mutation');
+    expect(result).toEqual({
+      query: 'mutation ($_id0: ID!) { page (_id: $_id0) { _id,title } }',
+      variables: {
+        _id0: '1'
+      }
+    });
+  });
+
   it('builds a more complex GraphQL query with variables', () => {
     const fragments = {
       page: {
