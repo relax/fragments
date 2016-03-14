@@ -207,4 +207,59 @@ describe('Fragments', () => {
       }
     });
   });
+
+  it('builds a GraphQL query with scoped fragments', () => {
+    const fragments = {
+      page: {
+        _id: 1,
+        title: 1
+      },
+      'another: page': {
+        _id: 1,
+        title: 1,
+        date: 1
+      }
+    };
+    const result = buildQueryAndVariables(fragments);
+    expect(result).toEqual({
+      query: 'query { page { _id,title },another: page { _id,title,date } }',
+      variables: {}
+    });
+  });
+
+  it('builds a GraphQL query with scoped fragments and variables', () => {
+    const fragments = {
+      page: {
+        _id: 1,
+        title: 1
+      },
+      'another: page': {
+        _id: 1,
+        title: 1,
+        date: 1
+      }
+    };
+    const variables = {
+      page: {
+        _id: {
+          value: '1',
+          type: 'ID!'
+        }
+      },
+      'another: page': {
+        _id: {
+          value: '2',
+          type: 'ID!'
+        }
+      }
+    };
+    const result = buildQueryAndVariables(fragments, variables);
+    expect(result).toEqual({
+      query: 'query ($_id0: ID!,$_id1: ID!) { page (_id: $_id0) { _id,title },another: page (_id: $_id1) { _id,title,date } }',
+      variables: {
+        _id0: '1',
+        _id1: '2'
+      }
+    });
+  });
 });
