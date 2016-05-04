@@ -105,6 +105,30 @@ describe('Fragments', () => {
     });
   });
 
+  it('builds a simple GraphQL query with boolean variables', () => {
+    const fragments = {
+      page: {
+        _id: 1,
+        title: 1
+      }
+    };
+    const variables = {
+      page: {
+        someBool: {
+          value: false,
+          type: 'Boolean!'
+        }
+      }
+    };
+    const result = buildQueryAndVariables(fragments, variables);
+    expect(result).toEqual({
+      query: 'query ($someBool0: Boolean!) { page (someBool: $someBool0) { _id,title } }',
+      variables: {
+        someBool0: false
+      }
+    });
+  });
+
   it('builds a simple GraphQL mutation with variables', () => {
     const fragments = {
       page: {
