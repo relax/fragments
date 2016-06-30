@@ -153,6 +153,40 @@ describe('Fragments', () => {
     });
   });
 
+  it('builds a GraphQL query with nested variables', () => {
+    const fragments = {
+      user: {
+        name: 1,
+        page: {
+          _id: 1,
+          title: 1
+        }
+      }
+    };
+    const variables = {
+      user: {
+        name: {
+          value: 'some',
+          type: 'String!'
+        },
+        page: {
+          _id: {
+            value: '1',
+            type: 'ID!'
+          }
+        }
+      }
+    };
+    const result = buildQueryAndVariables(fragments, variables);
+    expect(result).toEqual({
+      query: 'query ($name0: String!,$_id1: ID!) { user (name: $name0) { name,page (_id: $_id1) { _id,title } } }',
+      variables: {
+        name0: 'some',
+        _id1: '1'
+      }
+    });
+  });
+
   it('builds a more complex GraphQL query with variables', () => {
     const fragments = {
       page: {
@@ -182,7 +216,7 @@ describe('Fragments', () => {
     });
   });
 
-  it('builds a more complex GraphQL query with nexted queries with variables', () => {
+  it('builds a more complex GraphQL query with nested queries with variables', () => {
     const fragments = {
       page: {
         _id: 1,
