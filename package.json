@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/relax/fragments#readme",
   "dependencies": {
-    "lodash.foreach": "^3.0.3",
-    "lodash.merge": "^3.3.2"
+    "lodash": "^4.16.6"
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
