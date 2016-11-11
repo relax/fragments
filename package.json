@@ -1,6 +1,6 @@
 {
   "name": "relax-fragments",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Relax Fragments API to use on React components and GraphQL queries",
   "main": "dist/index.js",
   "scripts": {
