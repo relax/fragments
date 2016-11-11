@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "build": "npm run clean && babel lib/index.js -o dist/index.js",
+    "build": "npm run clean && webpack",
     "prepublish": "npm run build",
     "test": "mocha --compilers js:babel-register --recursive"
   },
@@ -28,18 +28,20 @@
   },
   "homepage": "https://github.com/relax/fragments#readme",
   "dependencies": {
-    "lodash": "^4.16.6"
+    "lodash.foreach": "^3.0.3",
+    "lodash.merge": "^3.3.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.1.18",
-    "babel-core": "^6.1.21",
-    "babel-eslint": "^4.1.5",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-stage-0": "^6.1.18",
-    "eslint": "^1.9.0",
-    "eslint-config-relax": "^1.0.5",
-    "eslint-plugin-react": "^3.8.0",
+    "babel-core": "^6.6.4",
+    "babel-eslint": "^6.0.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.6.0",
+    "eslint": "2.4.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.1.0",
     "expect": "^1.14.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "webpack": "^1.12.14"
   }
 }
